@@ -42,7 +42,7 @@ on it.  Spring Cloud Stream has a concept called "Foreign Source" where it bring
 The proposed architecture is as follows
 
 
-![alt text](https://github.com/ecomonestop/rico-spring-kafka/blob/master/ForeignSource.png?raw=true)
+![alt text](https://github.com/ecomonestop/rico-spring-kafka/blob/master/ForeignSource.PNG?raw=true)
 
 TODO:
 Describe how to make this app fault tolerant, "exactly once" semantics
