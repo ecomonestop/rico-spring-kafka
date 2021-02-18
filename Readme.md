@@ -45,8 +45,8 @@ The proposed architecture is as follows
 ![alt text](https://github.com/ecomonestop/rico-spring-kafka/blob/master/ForeignSource.PNG?raw=true)
 
 TODO:
-Describe how to make this app fault tolerant, "exactly once" semantics
-Give explanation on StreamBridge, Spring cloud stream API for "Foreign Source"
+- Describe how to make this app fault tolerant, "exactly once" semantics
+- Give explanation on StreamBridge, Spring cloud stream API for "Foreign Source"
 
 
 ### Detailed Use Case - Do not compute what you can precompute
