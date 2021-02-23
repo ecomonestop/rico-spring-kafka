@@ -1,4 +1,5 @@
 
+
 ## Simple Hello World all the way to detail use case driven examples using Spring Cloud Stream, Kafka, and AWS
 
 ### Simple Hello World
@@ -29,7 +30,7 @@ To run locally, do the following steps:
 			[appuser@kafka ~]$ kafka-console-producer --broker-list localhost:9092 --topic lowercase --property "parse.key=true" --property "key.separator=:"
 			>1:hello
 			>2:world
-		3.b kafka-console-consumer --bootstrap-server localhost:9092 --from-beginning --topic uppercase --propy "print.key=true"
+		3.b kafka-console-consumer --bootstrap-server localhost:9092 --from-beginning --topic uppercase --property "print.key=true"
 			null    HELLO
 			null    WORLD
 			
@@ -44,9 +45,22 @@ The proposed architecture is as follows
 
 ![alt text](https://github.com/ecomonestop/rico-spring-kafka/blob/master/ForeignSource.PNG?raw=true)
 
+#### Run locally
+To run locally, do the following steps:
+
+	1. Run docker-compose up -d
+	2. Start the app.  Either from ide or command line using the foreign spring profile
+	3. Test the app is working by simulating a S3 Object create event using sam local and verifying contents of file is now in the "toStream" topic:
+		3.a sam local invoke "S3FileToStreamFunction" -e events/event-s3.json
+		3.b docker exec -it kafka bash
+		[appuser@kafka ~]$ kafka-console-consumer --bootstrap-server localhost:9092 --from-beginning --topic toStream --property "print.key=true"
+null    {"id":123,"name":"test"}
+
 TODO:
 - Describe how to make this app fault tolerant, "exactly once" semantics
 - Give explanation on StreamBridge, Spring cloud stream API for "Foreign Source"
+-  Add dead letter queue to lambda
+-  deploy to a test environment in AWS
 
 
 ### Detailed Use Case - Do not compute what you can precompute
