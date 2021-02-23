@@ -54,7 +54,7 @@ To run locally, do the following steps:
 		3.a sam local invoke "S3FileToStreamFunction" -e events/event-s3.json
 		3.b docker exec -it kafka bash
 		[appuser@kafka ~]$ kafka-console-consumer --bootstrap-server localhost:9092 --from-beginning --topic toStream --property "print.key=true"
-null    {"id":123,"name":"test"}
+		null    {"id":123,"name":"test"}
 
 TODO:
 - Describe how to make this app fault tolerant, "exactly once" semantics
